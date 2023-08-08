@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function IsLogin() {
   let user = JSON.parse(localStorage.getItem("user"));
   const handleLogOut = () => {
@@ -31,7 +33,9 @@ export default function IsLogin() {
             <span className="font-bold text-lg">0 Items</span>
             <span className="text-info">Subtotal: $0</span>
             <div className="card-actions">
-              <button className="btn btn-primary btn-block">View cart</button>
+              <Link to={"/cart"} className="btn btn-primary btn-block">
+                View cart
+              </Link>
             </div>
           </div>
         </div>

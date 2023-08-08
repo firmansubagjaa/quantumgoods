@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { productDetailApi } from "../../../features/productDetailSlice";
-import LayoutsLoading from "../../Layouts/LayoutsLoading";
 
 export default function ProductDetailMain() {
   const { id } = useParams();
