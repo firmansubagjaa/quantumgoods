@@ -16,43 +16,54 @@ export default function CardOrder() {
     localStorage.setItem("@cart", JSON.stringify(updatedCart));
   };
 
-  const total = () => {
+  const Total = () => {
     let totalPrice = 0;
     for (const item of cart) {
       totalPrice += item.price;
     }
     return totalPrice;
   };
+  // const handleRemoveUsingLocalStorage = () => {
+  //   localStorage.removeItem("@cart");
+  // };
 
   return (
     <div className="bg-base-100 border-2 w-screen max-w-xl rounded-md border-solid border-base-300 shadow-sm">
       <div className="p-5">
         <div className="border-b border-solid border-black">
           <h1 className="font-medium text-2xl">Cart</h1>
-          {cart.map((item) => {
-            return (
-              <div key={item.id} className="flex flex-col justify-between py-5">
-                <div className="flex justify-between items-center  ">
-                  <div className="flex items-center">
-                    <img src={item.thumbnail} className="w-24 h-24  rounded-md mr-3" />
-                    <div className="">
-                      <p className="font-medium">{item.title}</p>
-                      <p>${item.price}</p>
+          {cart == [] ? (
+            <>
+              {cart?.map((item) => {
+                return (
+                  <div key={item.id} className="flex flex-col justify-between py-5">
+                    <div className="flex justify-between items-center  ">
+                      <div className="flex items-center">
+                        <img src={item.thumbnail} className="w-24 h-24  rounded-md mr-3" />
+                        <div className="">
+                          <p className="font-medium">{item.title}</p>
+                          <p>${item.price}</p>
+                        </div>
+                      </div>
+                      <div>
+                        <button className="btn btn-primary rounded-md" onClick={() => handleRemoveItem(item.id)}>
+                          Hapus
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <button className="btn btn-primary rounded-md" onClick={() => handleRemoveItem(item.id)}>
-                      Hapus
-                    </button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </>
+          ) : (
+            <>
+              <div>Not Found</div>
+            </>
+          )}
         </div>
         <div className="flex justify-between pt-3 font-bold">
           <p>Total</p>
-          <p>${total()}</p>
+          <p>${Total()}</p>
         </div>
       </div>
     </div>
