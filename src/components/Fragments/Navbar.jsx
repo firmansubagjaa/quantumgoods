@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { categoriesApi } from "../../features/categoriesSlice";
+import axios from "axios";
 import LayoutsLoading from "../Layouts/LayoutsLoading";
 import IsLogin from "./Navbar/isLogin";
 import IsNotLogin from "./Navbar/isNotLogin";

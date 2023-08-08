@@ -1,6 +1,6 @@
 export default function CardPayment() {
   return (
-    <div className="bg-base-100 border-2 w-screen max-w-sm border-solid border-base-300 shadow-sm">
+    <div className="bg-base-100 border-2 w-screen max-w-sm rounded-md border-solid border-base-300 shadow-sm">
       <div className="p-5">
         <h1 className="font-medium text-2xl">Payment</h1>
         <p>Pilih satu metode pembayaran yang anda inginkan</p>

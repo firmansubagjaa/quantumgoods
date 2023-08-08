@@ -24,6 +24,31 @@ export default function ProductDetailMain() {
     test();
   }, [dispatch, id]);
 
+  let user = JSON.parse(localStorage.getItem("user"));
+
+  const cart = {
+    id: data.id,
+    title: data.title,
+    price: data.price,
+    thumbnail: data.thumbnail,
+  };
+
+  const carts = JSON.parse(localStorage.getItem("@cart"));
+
+  const handleInput = () => {
+    if (user) {
+      alert("Yeay!, berhasil memasukkan ke keranjang");
+      if (carts === null) {
+        localStorage.setItem("@cart", JSON.stringify([cart]));
+      } else {
+        localStorage.setItem("@cart", JSON.stringify([...carts, cart]));
+      }
+    } else {
+      alert("Sebelum memesan, masukkan akun anda terlebih dahulu.");
+      window.href.location = "/login";
+    }
+  };
+
   return (
     <div className="mt-28">
       <div className="mx-10">
@@ -61,7 +86,9 @@ export default function ProductDetailMain() {
             <p>Description: {data.description}</p>
           </div>
           <div>
-            <button className="btn btn-primary w-full">Add to cart</button>
+            <button className="btn btn-primary w-full" onClick={handleInput}>
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
