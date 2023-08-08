@@ -1,7 +1,5 @@
-import Steps from "../Steps";
 import CardOrder from "./CardOrder";
 import CardPayment from "./CardPayment";
-// export default { CardOrder, CardPayment };
 
 export default function CartSection() {
   return (
