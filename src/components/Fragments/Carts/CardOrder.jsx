@@ -23,18 +23,15 @@ export default function CardOrder() {
     }
     return totalPrice;
   };
-  // const handleRemoveUsingLocalStorage = () => {
-  //   localStorage.removeItem("@cart");
-  // };
 
   return (
     <div className="bg-base-100 border-2 w-screen max-w-xl rounded-md border-solid border-base-300 shadow-sm">
       <div className="p-5">
         <div className="border-b border-solid border-black">
           <h1 className="font-medium text-2xl">Cart</h1>
-          {cart == [] ? (
+          {cart.length !== 0 ? (
             <>
-              {cart?.map((item) => {
+              {cart.map((item) => {
                 return (
                   <div key={item.id} className="flex flex-col justify-between py-5">
                     <div className="flex justify-between items-center  ">
