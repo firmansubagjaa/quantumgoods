@@ -36,36 +36,48 @@ export default function CardProducts() {
   }
 
   return (
-    <div className="flex mt-28">
-      <CatergoryCard />
-      <div>
-        <div className="flex flex-wrap mt-16">
-          {data?.products?.map((item) => {
-            return (
-              <div key={item.id} className="mt-5">
-                <Link to={`/product/${item.id}`}>
-                  <div className="card card-compact w-56 mx-3 bg-base-100 shadow-xl hover:shadow-2xl hover:shadow-base-content">
-                    <figure>
-                      <img src={item.thumbnail} alt={item.title} className="w-full h-56 object-cover object-center rounded-b-2xl" />
-                    </figure>
-                    <div className="card-body">
-                      <div className="h-20">
-                        <h2 className="card-title">{item.title}</h2>
-                        <p className="text-sm">${item.price}</p>
-                      </div>
-                      <div className="card-actions justify-end">
-                        <div className="badge badge-outline w-28">{item.category}</div>
-                        <div className="badge badge-outline">Products</div>
-                      </div>
-                      <div>
-                        <button className="btn btn-primary w-full rounded-2xl">Detail</button>
+    <div className="flex flex-col mt-28">
+      <div className="mx-10">
+        <div className="text-sm breadcrumbs">
+          <ul>
+            <li>
+              <Link to={`/`}>Home</Link>
+            </li>
+            <li>products</li>
+          </ul>
+        </div>
+      </div>
+      <div className="flex">
+        <CatergoryCard />
+        <div>
+          <div className="flex flex-wrap mt-5">
+            {data?.products?.map((item) => {
+              return (
+                <div key={item.id} className="mt-5">
+                  <Link to={`/product/${item.id}`}>
+                    <div className="card rounded-md card-compact w-56 mx-3 bg-base-100 shadow-xl hover:shadow-2xl hover:shadow-base-content">
+                      <figure>
+                        <img src={item.thumbnail} alt={item.title} className="w-full h-56 object-cover object-center" />
+                      </figure>
+                      <div className="card-body">
+                        <div className="h-20">
+                          <h2 className="card-title">{item.title}</h2>
+                          <p className="text-sm">${item.price}</p>
+                        </div>
+                        <div className="card-actions justify-end">
+                          <div className="badge badge-outline w-28">{item.category}</div>
+                          <div className="badge badge-outline">Products</div>
+                        </div>
+                        <div>
+                          <button className="btn btn-primary w-full rounded-2xl">Detail</button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              </div>
-            );
-          })}
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

@@ -44,12 +44,12 @@ export default function ProductDetailMain() {
           {data?.images?.map((image, i) => {
             return (
               <figure key={i}>
-                <img src={image} alt="i" className="m-5 rounded-2xl shadow-md w-96 h-96 object-cover object-top" />
+                <img src={image} alt="i" className="m-5 rounded-md shadow-md w-96 h-96 object-cover object-top" />
               </figure>
             );
           })}
         </figure>
-        <div className=" bg-base-100 border border-solid border-base-300 shadow-lg p-5 rounded-2xl">
+        <div className=" bg-base-100 border border-solid border-base-300 shadow-lg p-5 rounded-md">
           <h3 className="text-3xl font-semibold">{data.title} </h3>
           <p>Category: {data.category} </p>
           <p>Rating: {data.rating}</p>
@@ -61,7 +61,7 @@ export default function ProductDetailMain() {
             <p>Description: {data.description}</p>
           </div>
           <div>
-            <button className="btn btn-primary btn-wide">Add to cart</button>
+            <button className="btn btn-primary w-full">Add to cart</button>
           </div>
         </div>
       </div>

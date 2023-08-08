@@ -27,7 +27,7 @@ export default function Smartphones() {
           return (
             <div className="carousel-item" key={item.id}>
               <Link to={`/product/${item.id}`}>
-                <Cards title={item.title} desc={`$${item.price}`} image={item.thumbnail} className={"m-2"} />
+                <Cards title={item.title} desc={`$${item.price}`} image={item.thumbnail} className={"m-2"} category={item.category} />
               </Link>
             </div>
           );

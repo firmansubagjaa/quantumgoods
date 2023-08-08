@@ -27,7 +27,7 @@ export default function Laptops() {
           return (
             <Link to={`/product/${item.id}`} key={item.id}>
               <div className="carousel-item">
-                <Cards title={item.title} desc={`$${item.price}`} image={item.thumbnail} className={"m-2"} />
+                <Cards title={item.title} desc={`$${item.price}`} image={item.thumbnail} className={"m-2"} category={item.category} />
               </div>
             </Link>
           );

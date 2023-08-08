@@ -24,9 +24,9 @@ export default function CatergoryCard() {
   }, [dispatch]);
 
   return (
-    <div className="px-3">
-      <h4 className="py-5 font-semibold text-xl">Kategori</h4>
-      <ul className="menu bg-base-100 w-56 rounded-box shadow-xl">
+    <div className="px-3 mt-7">
+      <ul className="menu bg-base-100 w-56 rounded-md shadow-md">
+        <li className="p-5 font-bold  text-xl">Kategori</li>
         {data.map((item, i) => {
           return (
             <Link key={i} to={`/products/${item}`}>
