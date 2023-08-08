@@ -54,14 +54,20 @@ export default function CardOrder() {
             </>
           ) : (
             <>
-              <div>Not Found</div>
+              <div className="flex justify-center items-center my-10">
+                <span>Silahkan order terlebih dahulu</span>
+              </div>
             </>
           )}
         </div>
-        <div className="flex justify-between pt-3 font-bold">
-          <p>Total</p>
-          <p>${Total()}</p>
-        </div>
+        {Total() !== 0 ? (
+          <div className="flex justify-between pt-3 font-bold">
+            <p>Total</p>
+            <p>${Total()}</p>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

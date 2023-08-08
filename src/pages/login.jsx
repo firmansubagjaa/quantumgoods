@@ -44,15 +44,15 @@ export default function Login() {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="text" placeholder="password" className="input input-bordered" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" placeholder="password" className="input input-bordered" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
+                    Lupa password?
                   </a>
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Masuk</button>
               </div>
               {error && <p className="text-red-500">{error}</p>}
             </div>

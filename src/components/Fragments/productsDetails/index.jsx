@@ -87,7 +87,7 @@ export default function ProductDetailMain() {
           </div>
           <div>
             <button className="btn btn-primary w-full" onClick={handleInput}>
-              Add to cart
+              Tambahkan ke keranjang
             </button>
           </div>
         </div>

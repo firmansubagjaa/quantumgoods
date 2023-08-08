@@ -67,7 +67,7 @@ export default function Navbar({ children }) {
             <ul className="menu menu-horizontal px-1">
               <li tabIndex={0} className="">
                 <details>
-                  <summary>Kategori</summary>
+                  <summary className="font-medium py-3">Kategori</summary>
                   <ul className="p-2">
                     {data.map((item, i) => {
                       return (

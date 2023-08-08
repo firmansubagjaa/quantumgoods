@@ -43,7 +43,7 @@ export default function IsLogin() {
             <span className="text-info">Subtotal: ${Total()}</span>
             <div className="card-actions">
               <Link to={"/cart"} className="btn btn-primary btn-block">
-                View cart
+                Lihat keranjang
               </Link>
             </div>
           </div>
@@ -58,18 +58,14 @@ export default function IsLogin() {
         </label>
         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
           <span className="p-3 text-xl font-semibold">Hello {user.firstName}!</span>
-
           <li>
-            <button className="justify-between">
-              Profile
-              <span className="badge">New</span>
-            </button>
+            <button className="justify-between">Lihat Profil</button>
           </li>
           <li>
-            <button>Settings</button>
+            <button>Riwayat Pembelian</button>
           </li>
           <li>
-            <button onClick={handleLogOut}>Logout</button>
+            <button onClick={handleLogOut}>Keluar</button>
           </li>
         </ul>
       </div>
