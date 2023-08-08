@@ -3,11 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import CatergoryCard from "./CatergoryCard";
 import { useDispatch, useSelector } from "react-redux";
 import { categoryApi } from "../../../features/categorySlice";
+import LayoutsLoading from "../../Layouts/LayoutsLoading";
 
 export default function CardProducts() {
   const { categorys } = useParams();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.get.data);
+  const status = useSelector((state) => state.get.data);
 
   useEffect(() => {
     const storeDispatch = async () => {
@@ -24,7 +26,14 @@ export default function CardProducts() {
     dispatch(categoryApi(categorys));
     storeDispatch();
   }, [dispatch, categorys]);
-  console.log(data);
+
+  if (status === "loading") {
+    return <LayoutsLoading />;
+  }
+
+  if (status === "failed") {
+    return <div>Error: {Error}</div>;
+  }
 
   return (
     <div className="flex mt-28">

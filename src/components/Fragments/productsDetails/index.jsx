@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { productDetailApi } from "../../../features/productDetailSlice";
+import LayoutsLoading from "../../Layouts/LayoutsLoading";
 
 export default function ProductDetailMain() {
   const { id } = useParams();
@@ -23,11 +24,10 @@ export default function ProductDetailMain() {
     };
     test();
   }, [dispatch, id]);
-  console.log(data);
 
   return (
-    <div className="my-16">
-      <div className="m-16">
+    <div className="mt-28">
+      <div className="mx-10">
         <div className="text-sm breadcrumbs">
           <ul>
             <li>
@@ -40,18 +40,17 @@ export default function ProductDetailMain() {
           </ul>
         </div>
       </div>
-      <div className="flex justify-center items-start">
+      <div className="flex justify-evenly items-start">
         <figure className="stack">
           {data?.images?.map((image, i) => {
             return (
               <figure key={i}>
-                <img src={image} alt="i" className="m-5 rounded-2xl shadow-md w-96 h-64 object-cover object-top" />
+                <img src={image} alt="i" className="m-5 rounded-2xl shadow-md w-96 h-96 object-cover object-top" />
               </figure>
             );
           })}
-          {/* <img src={data.thumbnail} alt={data.title} className="rounded-2xl w-80 h-80 object-cover object-center" /> */}
         </figure>
-        <div className="mx-28 bg-base-100 border border-solid border-base-300 shadow-2xl p-5 rounded-2xl">
+        <div className=" bg-base-100 border border-solid border-base-300 shadow-lg p-5 rounded-2xl">
           <h3 className="text-3xl font-semibold">{data.title} </h3>
           <p>Category: {data.category} </p>
           <p>Rating: {data.rating}</p>
