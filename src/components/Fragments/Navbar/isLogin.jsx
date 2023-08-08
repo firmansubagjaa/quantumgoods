@@ -11,7 +11,7 @@ export default function IsLogin() {
       <div className="tooltip tooltip-bottom" data-tip="Favorite">
         <a className="btn btn-ghost btn-circle rounded-full">
           <div className="indicator">
-            <img src="/public/images/png/heart.png" className="h-5 w-5" />
+            <img src="public/images/png/heart.png" className="h-5 w-5" />
           </div>
         </a>
       </div>
