@@ -1,0 +1,48 @@
+ daisyui: {
+    themes: [
+      {
+        mytheme: {
+
+          "primary": "#db6b69",
+
+          "secondary": "#f9bb63 ",
+
+          "accent": "#d8bb38",
+
+          "neutral": "#1d1c27",
+
+          "base-100": "#efebf5",
+
+          "info": "#7c8cd5",
+
+          "success": "#56e1bc",
+
+          "warning": "#efc762",
+
+          "error": "#f6282e",
+        },
+      },
+    ],
+  },
+
+
+kedua
+  mytheme: {
+          
+ "primary": "#d6b917",
+          
+ "secondary": "#5dd896",
+          
+ "accent": "#a40ace",
+          
+ "neutral": "#28242d",
+          
+ "base-100": "#ffffff",
+          
+ "info": "#51b5ec",
+          
+ "success": "#2de6be",
+          
+ "warning": "#f9b92f",
+          
+ "error": "#ed4d31",
