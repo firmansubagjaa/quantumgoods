@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { categoriesApi } from "../../features/categoriesSlice";
 import LayoutsLoading from "../Layouts/LayoutsLoading";
+import IsLogin from "./Navbar/isLogin";
+import IsNotLogin from "./Navbar/isNotLogin";
 
 export default function Navbar({ children }) {
   const dispatch = useDispatch();
@@ -46,7 +48,7 @@ export default function Navbar({ children }) {
     return <div>error: {error}</div>;
   }
 
-  // console.log(data);
+  let user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <div className="drawer drawer-end">
@@ -104,12 +106,7 @@ export default function Navbar({ children }) {
             </div>
           </div>
           <div className="navbar-end">
-            <div className="hidden lg:flex">
-              <Link to={`/login`} className="btn btn-outline btn-primary mr-3">
-                Login
-              </Link>
-              <a className="btn btn-primary ">Sign Up</a>
-            </div>
+            <div className="hidden lg:flex w-full">{user ? <IsLogin /> : <IsNotLogin />}</div>
             <div className="flex lg:hidden">
               <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current">
