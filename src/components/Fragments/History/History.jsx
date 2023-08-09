@@ -33,45 +33,47 @@ export default function History() {
         <div className="bg-base-100 border-2 w-screen max-w-6xl h-screen rounded-md border-solid border-base-300 shadow-sm">
           <div className="p-5">
             <h1 className="font-medium text-2xl p-5">Riwayat Pembelian</h1>
-            {purchaseHistory.length !== 0 ? (
+            {!purchaseHistory && purchaseHistory.length !== 0 ? (
               <ul>
-                {purchaseHistory.map((purchase, i) => {
-                  return (
-                    <li key={i}>
-                      <ul>
-                        {purchase.items.map((item) => {
-                          return (
-                            <li key={item.id}>
-                              <div className="flex flex-col hover:bg-base-300 justify-between p-5 rounded-md">
-                                <li className="flex justify-between items-center">
-                                  <Link to={`/product/${item.id}`}>
-                                    <div className="flex items-center">
-                                      <img src={item.thumbnail} className="w-24 h-24 object-cover object-center  rounded-md mr-3" />
-                                      <div className="">
-                                        <p className="font-medium">{item.title}</p>
-                                        <p>${item.price}</p>
+                {!purchaseHistory &&
+                  purchaseHistory.map((purchase, i) => {
+                    return (
+                      <li key={i}>
+                        <ul>
+                          {purchase.items.map((item) => {
+                            return (
+                              <li key={item.id}>
+                                <div className="flex flex-col hover:bg-base-300 justify-between p-5 rounded-md">
+                                  <li className="flex justify-between items-center">
+                                    <Link to={`/product/${item.id}`}>
+                                      <div className="flex items-center">
+                                        <img src={item.thumbnail} className="w-24 h-24 object-cover object-center  rounded-md mr-3" />
+                                        <div className="">
+                                          <p className="font-medium">{item.title}</p>
+                                          <p>${item.price}</p>
+                                        </div>
                                       </div>
+                                    </Link>
+                                    <div className="">
+                                      <button onClick={() => handleRemoveItemFromHistory(purchase.id, item.id)} className="btn btn-error w-full max-w-xs  ">
+                                        Buang
+                                      </button>
                                     </div>
-                                  </Link>
-                                  <div className="">
-                                    <button onClick={() => handleRemoveItemFromHistory(purchase.id, item.id)} className="btn btn-error w-full max-w-xs  ">
-                                      Buang
-                                    </button>
-                                  </div>
-                                </li>
-                              </div>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </li>
-                  );
-                })}
+                                  </li>
+                                </div>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </li>
+                    );
+                  })}
               </ul>
             ) : (
               <>
-                <div className="flex justify-center items-center h-screen max-h-60 my-10">
-                  <span>Riwayat Pembelian Belum Ada</span>
+                <div className="flex flex-col justify-center space-y-5 items-center h-screen max-h-60 my-10">
+                  <img src="/images/png/history.png" className="w-52  max-w-xs" />
+                  <span className="font-semibold">Riwayat Pembelian Belum Ada</span>
                 </div>
               </>
             )}

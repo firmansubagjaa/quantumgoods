@@ -40,7 +40,7 @@ export default function IsLogin() {
         <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
           <div className="card-body">
             <span className="font-bold text-lg">{cart.length === 0 ? "0" : cart.length} Items</span>
-            <span className="text-info">Subtotal: ${Total()}</span>
+            <span className="text-info  ">Subtotal: ${Total()}</span>
             <div className="card-actions">
               <Link to={"/cart"} className="btn btn-primary btn-block">
                 Lihat keranjang

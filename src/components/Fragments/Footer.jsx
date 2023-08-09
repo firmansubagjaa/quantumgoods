@@ -1,7 +1,6 @@
 export default function Footer() {
   const date = new Date();
   const year = date.getFullYear();
-  // const years = date(year);
   return (
     <div className="mt-10">
       <footer className="footer p-10 bg-base-200 border-t-2 border-solid border-base-300 text-base-content">

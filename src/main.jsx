@@ -11,6 +11,7 @@ import Login from "./pages/login";
 import CartPage from "./pages/cart";
 import History from "./pages/History";
 import Favorite from "./pages/Favorite";
+import ProgressPaymentPage from "./pages/progressPayement";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/favorite",
     element: <Favorite />,
+  },
+  {
+    path: "/progress-payment",
+    element: <ProgressPaymentPage />,
   },
 ]);
 

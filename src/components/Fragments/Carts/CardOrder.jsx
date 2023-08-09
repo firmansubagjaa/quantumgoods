@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Toast from "../toast";
 import { Link, useNavigate } from "react-router-dom";
+import Toast from "../toast";
 
 export default function CardOrder() {
   const cart = JSON.parse(localStorage.getItem("@cart"));
@@ -27,10 +27,9 @@ export default function CardOrder() {
 
   const handleBuy = () => {
     const purchaseDetails = {
-      id: Date.now(), // Gunakan timestamp atau ID unik lainnya
+      id: Date.now(),
       items: cartItems,
       date: new Date().toISOString(),
-      // Tambahkan properti lain sesuai kebutuhan
     };
     const purchaseHistory = JSON.parse(localStorage.getItem("@purchaseHistory")) || [];
     purchaseHistory.push(purchaseDetails);
@@ -44,7 +43,7 @@ export default function CardOrder() {
     setTimeout(() => {
       setShowToast(false);
     }, 3000);
-    navigate("/history");
+    navigate("/progress-payment");
   };
 
   const Total = () => {
@@ -63,33 +62,35 @@ export default function CardOrder() {
             <h1 className="font-medium text-2xl">Cart</h1>
             {cart.length !== 0 ? (
               <>
-                {cart.map((item) => {
-                  return (
-                    <div key={item.id} className="flex flex-col justify-between p-5 my-5 rounded-lg hover:bg-base-300">
-                      <div className="flex justify-between items-center  ">
-                        <Link to={`/product/${item.id}`}>
-                          <div className="flex items-center">
-                            <img src={item.thumbnail} className="w-24 h-24  rounded-md mr-3" />
-                            <div className="">
-                              <p className="font-medium">{item.title}</p>
-                              <p>${item.price}</p>
+                {!cart &&
+                  cart.map((item) => {
+                    return (
+                      <div key={item.id} className="flex flex-col justify-between p-5 my-5 rounded-lg hover:bg-base-300">
+                        <div className="flex justify-between items-center  ">
+                          <Link to={`/product/${item.id}`}>
+                            <div className="flex items-center">
+                              <img src={item.thumbnail} className="w-24 h-24  rounded-md mr-3" />
+                              <div className="">
+                                <p className="font-medium">{item.title}</p>
+                                <p>${item.price}</p>
+                              </div>
                             </div>
+                          </Link>
+                          <div>
+                            <button className="btn btn-primary rounded-md" onClick={() => handleRemoveItem(item.id)}>
+                              Hapus
+                            </button>
                           </div>
-                        </Link>
-                        <div>
-                          <button className="btn btn-primary rounded-md" onClick={() => handleRemoveItem(item.id)}>
-                            Hapus
-                          </button>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
               </>
             ) : (
               <>
-                <div className="flex justify-center items-center h-screen max-h-60 my-10">
-                  <span>Silahkan order terlebih dahulu</span>
+                <div className="flex flex-col justify-center space-y-5 items-center h-screen max-h-60 my-10">
+                  <img src="/images/png/trolley.png" className="w-52  max-w-xs" />
+                  <span className="font-semibold">Silahkan order terlebih dahulu</span>
                 </div>
               </>
             )}
