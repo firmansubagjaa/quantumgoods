@@ -64,31 +64,28 @@ export default function Navbar({ children }) {
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
-              <li tabIndex={0} className="">
-                <details>
-                  <summary className="font-medium py-3">Kategori</summary>
-                  <ul className="p-2">
-                    {data.map((item, i) => {
-                      return (
-                        <Link key={i} to={`/products/${item}`}>
-                          <li className="">
-                            <a>{item}</a>
-                          </li>
-                        </Link>
-                      );
-                    })}
-                  </ul>
-                </details>
-              </li>
+            <ul className="dropdown dropdown-hover px-1">
+              <label tabIndex={0} className="btn btn-ghost m-1">
+                Kategori
+              </label>
+              <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                {data.map((item, i) => {
+                  return (
+                    <Link key={i} to={`/products/${item}`}>
+                      <li className="">
+                        <a>{item}</a>
+                      </li>
+                    </Link>
+                  );
+                })}
+              </ul>
             </ul>
             <div className="z-20">
               <input value={query} onChange={handleInputData} type="text" placeholder="Cari di QuantumGoods" className="input input-bordered input-primary w-screen max-w-2xl" />
               <ul className="bg-base-100 shadow-2xl fixed w-screen max-w-2xl rounded-b-2xl flex flex-col justify-center">
-                {console.log(searchResult)}
                 {searchResult.map((result) => {
                   return (
-                    <Link key={result.id} to={`/product/${result.id}`} className="mx-3 hover:bg-base-300 hover:rounded-xl hover:mx-3 z-10">
+                    <Link key={result.id} to={`/product/${result.id}`} className="mx-3  hover:bg-base-300 hover:rounded-xl hover:mx-3 z-10">
                       <li className="p-3">
                         <figure className="flex items-center">
                           <img src={result.thumbnail} alt={result.title} className="w-10 h-10 object-cover object-top rounded-xl" />
