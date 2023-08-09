@@ -1,5 +1,4 @@
 import CardOrder from "./CardOrder";
-import CardPayment from "./CardPayment";
 
 export default function CartSection() {
   return (
@@ -12,11 +11,8 @@ export default function CartSection() {
           <li className="step">Menunggu Barang</li>
         </ul>
       </div>
-      <div className="flex justify-around mt-10">
-        <div>
-          <CardOrder />
-        </div>
-        <CardPayment />
+      <div className="flex justify-center mt-10">
+        <CardOrder />
       </div>
     </div>
   );

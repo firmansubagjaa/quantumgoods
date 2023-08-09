@@ -60,9 +60,21 @@ export default function CardProducts() {
                         <img src={item.thumbnail} alt={item.title} className="w-full h-56 object-cover object-center" />
                       </figure>
                       <div className="card-body">
-                        <div className="h-20">
-                          <h2 className="card-title">{item.title}</h2>
-                          <p className="text-sm">${item.price}</p>
+                        <div className="flex justify-between items-start">
+                          <div className="h-20">
+                            <h2 className="card-title">{item.title}</h2>
+                            <p className="text-sm">${item.price}</p>
+                          </div>
+
+                          <div>
+                            <div className="tooltip tooltip-bottom" data-tip="Favorite">
+                              <button className="btn btn-ghost btn-circle rounded-full">
+                                <div className="indicator">
+                                  <img src="/images/png/heart.png" className="h-5 w-5" />
+                                </div>
+                              </button>
+                            </div>
+                          </div>
                         </div>
                         <div className="card-actions justify-end">
                           <div className="badge badge-outline w-28">{item.category}</div>
