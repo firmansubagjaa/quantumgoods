@@ -27,7 +27,7 @@ export default function Favorite() {
       <div className="bg-base-100 border-2 w-screen max-w-6xl h-screen rounded-md border-solid border-base-300 shadow-sm">
         <div className="p-5">
           <h1 className="font-medium text-2xl">Barang Yang Di Favorit</h1>
-          {!favorites && favorites !== 0 ? (
+          {favorites && favorites !== 0 ? (
             <>
               {favorites.map((item) => {
                 return (

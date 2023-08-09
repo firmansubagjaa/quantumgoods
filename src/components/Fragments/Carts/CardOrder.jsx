@@ -62,7 +62,7 @@ export default function CardOrder() {
             <h1 className="font-medium text-2xl">Cart</h1>
             {cart.length !== 0 ? (
               <>
-                {!cart &&
+                {cart &&
                   cart.map((item) => {
                     return (
                       <div key={item.id} className="flex flex-col justify-between p-5 my-5 rounded-lg hover:bg-base-300">
@@ -104,7 +104,7 @@ export default function CardOrder() {
             ""
           )}
         </div>
-        <div className={`p-5 w-full border-l-2 ${cart.length === 0 ? "hidden" : "flex flex-col"}`}>
+        <div className={`p-5 w-full flex flex-col justify-center border-l-2 ${cart.length === 0 ? "hidden" : "flex flex-col"}`}>
           <h1 className="font-medium text-2xl">Payment</h1>
           <p>Pilih satu metode pembayaran yang anda inginkan</p>
           <div className="flex justify-between py-7">
@@ -136,7 +136,7 @@ export default function CardOrder() {
               <label htmlFor="radio-2">Jl. Happy Calm VI No. 10</label>
             </div>
             <div className="border-b border-solid border-black"></div>
-            <div className="my-5">
+            <div className="my-5 flex">
               <button className="btn btn-primary w-full" onClick={handleBuy}>
                 Buy
               </button>

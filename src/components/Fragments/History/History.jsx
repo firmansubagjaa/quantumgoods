@@ -4,6 +4,7 @@ import Toast from "../toast";
 
 export default function History() {
   const navigate = useNavigate();
+  const array = [];
   const [showToast, setShowToast] = useState(false);
   const purchaseHistory = JSON.parse(localStorage.getItem("@purchaseHistory")) || [];
   const handleRemoveItemFromHistory = (purchaseId, itemId) => {
@@ -30,12 +31,12 @@ export default function History() {
         </ul>
       </div>
       <div className="flex justify-center items-center mt-10">
-        <div className="bg-base-100 border-2 w-screen max-w-6xl h-screen rounded-md border-solid border-base-300 shadow-sm">
+        <div className="bg-base-100 border-2 w-screen max-w-6xl h-full rounded-md border-solid border-base-300 shadow-sm">
           <div className="p-5">
             <h1 className="font-medium text-2xl p-5">Riwayat Pembelian</h1>
-            {!purchaseHistory && purchaseHistory.length !== 0 ? (
+            {purchaseHistory !== array ? (
               <ul>
-                {!purchaseHistory &&
+                {purchaseHistory &&
                   purchaseHistory.map((purchase, i) => {
                     return (
                       <li key={i}>
