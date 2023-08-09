@@ -2,8 +2,8 @@ export default function Footer() {
   const date = new Date();
   const year = date.getFullYear();
   return (
-    <div className="mt-10">
-      <footer className="footer p-10 bg-base-200 border-t-2 border-solid border-base-300 text-base-content">
+    <footer className="mt-10">
+      <div className="footer p-10 bg-base-200 border-t-2 border-solid border-base-300 text-base-content">
         <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>
@@ -24,7 +24,7 @@ export default function Footer() {
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
         </div>
-      </footer>
+      </div>
       <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
         <div className="items-center grid-flow-col">
           {/* <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" className="fill-current">
@@ -55,6 +55,6 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-    </div>
+    </footer>
   );
 }

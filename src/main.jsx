@@ -12,11 +12,13 @@ import CartPage from "./pages/cart";
 import History from "./pages/History";
 import Favorite from "./pages/Favorite";
 import ProgressPaymentPage from "./pages/progressPayement";
+import ErrorPage from "./pages/404";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/products/:categorys",

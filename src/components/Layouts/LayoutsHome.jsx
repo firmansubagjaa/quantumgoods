@@ -1,3 +1,4 @@
+import CardInvite from "../Fragments/CardInvite";
 import Footer from "../Fragments/Footer";
 import Hero from "../Fragments/Hero";
 import Laptops from "../Fragments/Laptops";
@@ -11,6 +12,7 @@ export default function LayoutsHome() {
         <Hero />
         <Smartphones />
         <Laptops />
+        <CardInvite />
         <Footer />
       </Navbar>
     </>

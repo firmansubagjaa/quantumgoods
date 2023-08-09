@@ -124,19 +124,19 @@ export default function ProductDetailMain() {
           </ul>
         </div>
       </div>
-      <div className="flex justify-evenly items-start">
+      <div className="flex flex-col lg:flex-row justify-evenly items-center">
         <figure className="stack">
           {data?.images?.map((image, i) => {
             return (
               <figure key={i}>
-                <img src={image} alt="i" className="m-5 rounded-md shadow-md w-96 h-96 object-cover object-top" />
+                <img src={image} alt="i" className="p-5 rounded-md shadow-md w-96 h-96 object-cover object-top" />
               </figure>
             );
           })}
         </figure>
-        <div className=" bg-base-100 border border-solid border-base-300 shadow-lg p-5 rounded-md">
+        <div className=" bg-base-100 border border-solid border-base-300 shadow-lg w-full max-w-4xl p-5 rounded-md">
           <div className="flex justify-between items-start">
-            <div className="w-72">
+            <div className="w-full">
               <h3 className="text-3xl font-semibold">{data.title} </h3>
               <p>Category: {data.category} </p>
               <p>Rating: {data.rating}</p>
@@ -154,7 +154,7 @@ export default function ProductDetailMain() {
           <div className="text-primary my-5">
             <p className="text-5xl">${data.price}</p>
           </div>
-          <div className="my-5 w-96">
+          <div className="my-5 w-full">
             <h5 className="border-b-2 border-solid border-primary">Description</h5>
             <p>Description: {data.description}</p>
           </div>
@@ -168,7 +168,7 @@ export default function ProductDetailMain() {
           </div>
         </div>
       </div>
-      <div className=" ">
+      <div className="mt-10">
         <h3 className="text-3xl font-semibold border-b-2 border-solid border-primary p-2 mx-16">Gallery</h3>
 
         <div className="flex flex-wrap justify-center m-10">
