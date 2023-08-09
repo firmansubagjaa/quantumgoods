@@ -24,10 +24,10 @@ export default function Favorite() {
 
   return (
     <div className="flex justify-center items-center mt-36">
-      <div className="bg-base-100 border-2 w-screen max-w-6xl h-screen rounded-md border-solid border-base-300 shadow-sm">
+      <div className="bg-base-100 border-2 w-screen max-w-6xl h-full rounded-md border-solid border-base-300 shadow-sm">
         <div className="p-5">
           <h1 className="font-medium text-2xl">Barang Yang Di Favorit</h1>
-          {favorites && favorites !== 0 ? (
+          {favorites.length !== 0 ? (
             <>
               {favorites.map((item) => {
                 return (
@@ -35,7 +35,7 @@ export default function Favorite() {
                     <div className="flex justify-between items-center">
                       <div className="flex items-center">
                         <img src="" alt="" />
-                        <img src={item.thumbnail} className="w-24 h-24 border-2 rounded-md mr-3" />
+                        <img src={item.thumbnail} className="w-24 h-24 rounded-md mr-3 object-cover object-center" />
                         <div className="">
                           <p className="font-medium">{item.title}</p>
                           <p>${item.price}</p>
