@@ -41,13 +41,13 @@ export default function Login() {
                   <label className="label">
                     <span className="label-text">Email</span>
                   </label>
-                  <input type="text" placeholder="email" className="input input-bordered" value={username} onChange={(e) => setUsername(e.target.value)} />
+                  <input type="text" placeholder="email" autoComplete="username" className="input input-bordered" value={username} onChange={(e) => setUsername(e.target.value)} />
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
-                  <input type="password" placeholder="password" className="input input-bordered" value={password} onChange={(e) => setPassword(e.target.value)} />
+                  <input type="password" placeholder="password" className="input input-bordered" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} />
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
                       Lupa password?

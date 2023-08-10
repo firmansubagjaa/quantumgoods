@@ -108,6 +108,11 @@ export default function ProductDetailMain() {
       navigate("/login");
     }
   };
+  console.log(data);
+  const rating = (data) => {
+    return Math.floor(data);
+  };
+  console.log(rating(data.rating));
 
   return (
     <div className="mt-28">
