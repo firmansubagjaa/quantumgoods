@@ -68,7 +68,7 @@ export default function CardProducts() {
               return (
                 <div key={item.id} className="mt-5 md:m-2">
                   <Link to={`/product/${item.id}`}>
-                    <div className="card rounded-md card-compact w-56 max-w-2xl lg:max-w-xs   bg-base-100 shadow-xl hover:shadow-2xl hover:shadow-base-content">
+                    <div className="card rounded-md card-compact w-72 lg:w-56 max-w-2xl lg:max-w-xs   bg-base-100 shadow-xl hover:shadow-2xl hover:shadow-base-content">
                       <figure>
                         <img src={item.thumbnail} alt={item.title} className="w-full h-56 object-cover object-center" />
                       </figure>
@@ -92,9 +92,6 @@ export default function CardProducts() {
                         <div className="card-actions justify-end">
                           <div className="badge badge-outline w-28">{item.category}</div>
                           <div className="badge badge-outline">Products</div>
-                        </div>
-                        <div>
-                          <button className="btn btn-primary w-full rounded-2xl">Detail</button>
                         </div>
                       </div>
                     </div>

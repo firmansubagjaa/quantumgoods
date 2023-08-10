@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function IsLoginDrawer() {
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   // const cart = JSON.parse(localStorage.getItem("@cart"));
 
   const handleLogOut = () => {
     localStorage.removeItem("user");
-    window.location.href = "/";
+    navigate("/");
   };
   return (
     <>
@@ -57,12 +58,6 @@ export default function IsLoginDrawer() {
         </li>
       </div>
       <div>
-        <li className="flex">
-          <Link>
-            <img src="/images/png/setting.png" className="w-5" />
-            Pengaturan
-          </Link>
-        </li>
         <div>
           <li className="flex">
             <Link>
@@ -70,13 +65,13 @@ export default function IsLoginDrawer() {
               Tentang Kami
             </Link>
           </li>
+          <li className="flex">
+            <button onClick={() => handleLogOut()}>
+              <img src="/images/png/logout.png" className="w-5" />
+              Keluar
+            </button>
+          </li>
         </div>
-        <li className="flex">
-          <button onClick={() => handleLogOut()}>
-            <img src="/images/png/logout.png" className="w-5" />
-            Keluar
-          </button>
-        </li>
       </div>
     </>
   );

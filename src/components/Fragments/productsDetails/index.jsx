@@ -108,11 +108,6 @@ export default function ProductDetailMain() {
       navigate("/login");
     }
   };
-  console.log(data);
-  const rating = (data) => {
-    return Math.floor(data);
-  };
-  console.log(rating(data.rating));
 
   return (
     <div className="mt-28">
@@ -132,7 +127,7 @@ export default function ProductDetailMain() {
 
       <div>
         <div className="flex flex-col lg:flex-row justify-evenly items-center">
-          <div className=" carousel rounded-box w-96">
+          <div className=" carousel rounded-md w-96">
             <div className="carousel-item w-1/1 ">
               {data?.images?.map((image, i) => {
                 return <img src={image} className="w-full object-cover object-center" key={i} />;

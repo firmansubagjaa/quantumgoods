@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function IsLogin() {
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   const cart = JSON.parse(localStorage.getItem("@cart"));
 
   const handleLogOut = () => {
     localStorage.removeItem("user");
-    window.location.href = "/";
+    navigate("/");
   };
 
   const Total = () => {

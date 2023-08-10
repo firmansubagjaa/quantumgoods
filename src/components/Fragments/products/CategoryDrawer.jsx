@@ -31,15 +31,15 @@ export default function CategoryDrawer({ children }) {
       </div>
       <div className="drawer-side z-[10]">
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+        <ul className="menu  p-4 w-80 h-full bg-base-200 text-base-content">
           <div className="bg-base-100 py-5 rounded-md">
             <div className="flex justify-center items-center">
               <p className="font-bold"> Kategori </p>
             </div>
           </div>
-          {data.map((item) => {
+          {data.map((item, i) => {
             return (
-              <li key={item.id}>
+              <li key={i}>
                 <Link to={`/products/${item}`}>{item}</Link>
               </li>
             );
