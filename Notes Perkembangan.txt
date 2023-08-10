@@ -14,6 +14,7 @@ APA YANG HARUS DIKERJAKAN UNTUK BESOK
 APA YANG HARUS DIKERJAKAN UNTUK BESOK
 - BIKIN ALL PRODUCT
 - BIKIN PAGINATION
+- benerin semuanya di product dan drawer mau istirahat
 
 akun 1
 "username": "atuny0",

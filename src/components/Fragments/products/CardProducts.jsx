@@ -4,6 +4,7 @@ import CatergoryCard from "./CatergoryCard";
 import { useDispatch, useSelector } from "react-redux";
 import { categoryApi } from "../../../features/categorySlice";
 import LayoutsLoading from "../../Layouts/LayoutsLoading";
+import CategoryDrawer from "./CategoryDrawer";
 
 export default function CardProducts() {
   const { categorys } = useParams();
@@ -36,32 +37,44 @@ export default function CardProducts() {
   }
 
   return (
-    <div className="flex flex-col mt-28">
-      <div className="mx-10">
-        <div className="text-sm breadcrumbs">
-          <ul>
-            <li>
-              <Link to={`/`}>Home</Link>
-            </li>
-            <li>products</li>
-          </ul>
+    <CategoryDrawer>
+      <div className="mt-28 w-full">
+        <div className="mx-10 flex justify-between items-center">
+          <div>
+            <div className="text-sm breadcrumbs">
+              <ul>
+                <li>
+                  <Link to={`/`}>Home</Link>
+                </li>
+                <li>products</li>
+              </ul>
+            </div>
+          </div>
+          <div className="flex lg:hidden">
+            <div></div>
+            <label htmlFor="my-drawer" className="btn btn-neutral drawer-button">
+              Kategori
+            </label>
+          </div>
         </div>
-      </div>
-      <div className="flex">
-        <CatergoryCard />
-        <div>
-          <div className="flex flex-wrap mt-5">
+
+        <div className="flex">
+          <div className="hidden lg:inline-block">
+            <CatergoryCard />
+          </div>
+
+          <div className="flex flex-wrap justify-center  mt-5">
             {data?.products?.map((item) => {
               return (
-                <div key={item.id} className="mt-5">
+                <div key={item.id} className="mt-5 md:m-2">
                   <Link to={`/product/${item.id}`}>
-                    <div className="card rounded-md card-compact w-56 mx-3 bg-base-100 shadow-xl hover:shadow-2xl hover:shadow-base-content">
+                    <div className="card rounded-md card-compact w-56 max-w-2xl lg:max-w-xs   bg-base-100 shadow-xl hover:shadow-2xl hover:shadow-base-content">
                       <figure>
                         <img src={item.thumbnail} alt={item.title} className="w-full h-56 object-cover object-center" />
                       </figure>
                       <div className="card-body">
                         <div className="flex justify-between items-start">
-                          <div className="h-20">
+                          <div className="h-40">
                             <h2 className="card-title">{item.title}</h2>
                             <p className="text-sm">${item.price}</p>
                           </div>
@@ -92,6 +105,6 @@ export default function CardProducts() {
           </div>
         </div>
       </div>
-    </div>
+    </CategoryDrawer>
   );
 }

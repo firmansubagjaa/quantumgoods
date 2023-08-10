@@ -111,7 +111,7 @@ export default function ProductDetailMain() {
 
   return (
     <div className="mt-28">
-      <div className="mx-10">
+      <div className="ml-10">
         <div className="text-sm breadcrumbs">
           <ul>
             <li>
@@ -124,58 +124,61 @@ export default function ProductDetailMain() {
           </ul>
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row justify-evenly items-center">
-        <figure className="stack">
-          {data?.images?.map((image, i) => {
-            return (
-              <figure key={i}>
-                <img src={image} alt="i" className="p-5 rounded-md shadow-md w-96 h-96 object-cover object-top" />
-              </figure>
-            );
-          })}
-        </figure>
-        <div className=" bg-base-100 border border-solid border-base-300 shadow-lg w-full max-w-4xl p-5 rounded-md">
-          <div className="flex justify-between items-start">
-            <div className="w-full">
-              <h3 className="text-3xl font-semibold">{data.title} </h3>
-              <p>Category: {data.category} </p>
-              <p>Rating: {data.rating}</p>
+
+      <div>
+        <div className="flex flex-col lg:flex-row justify-evenly items-center">
+          <div className=" carousel rounded-box w-96">
+            <div className="carousel-item w-1/1 ">
+              {data?.images?.map((image, i) => {
+                return <img src={image} className="w-full object-cover object-center" key={i} />;
+              })}
             </div>
-            <div>
-              <div className="tooltip tooltip-bottom" data-tip="Favorite">
-                <button className="btn btn-ghost btn-circle rounded-full" onClick={() => handleFavoriteInput()}>
-                  <div className="indicator">
-                    <img src="/images/png/heart.png" className="h-10 w-10" />
-                  </div>
-                </button>
+          </div>
+
+          <div className=" bg-base-100 border border-solid border-base-300 shadow-lg w-full max-w-2xl p-5 rounded-md">
+            <div className="flex justify-between items-start">
+              <div className="w-full">
+                <h3 className="text-3xl font-semibold">{data.title} </h3>
+                <p>Category: {data.category} </p>
+                <p>Rating: {data.rating}</p>
+              </div>
+              <div>
+                <div className="tooltip tooltip-bottom" data-tip="Favorite">
+                  <button className="btn btn-ghost btn-circle rounded-full" onClick={() => handleFavoriteInput()}>
+                    <div className="indicator">
+                      <img src="/images/png/heart.png" className="h-10 w-10" />
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="text-primary my-5">
-            <p className="text-5xl">${data.price}</p>
-          </div>
-          <div className="my-5 w-full">
-            <h5 className="border-b-2 border-solid border-primary">Description</h5>
-            <p>Description: {data.description}</p>
-          </div>
-          <div className="space-y-2">
-            <button className="btn btn-primary w-full" onClick={handleInputCart}>
-              Tambahkan ke keranjang
-            </button>
-            <button className="btn btn-secondary w-full" onClick={handleInputPayment}>
-              Langsung Bayar
-            </button>
+            <div className="text-primary my-5">
+              <p className="text-5xl">${data.price}</p>
+            </div>
+            <div className="my-5 w-full">
+              <h5 className="border-b-2 border-solid border-primary">Description</h5>
+              <p>Description: {data.description}</p>
+            </div>
+            <div className="space-y-2">
+              <button className="btn btn-primary w-full" onClick={handleInputCart}>
+                Tambahkan ke keranjang
+              </button>
+              <button className="btn btn-secondary w-full" onClick={handleInputPayment}>
+                Langsung Bayar
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="mt-10">
-        <h3 className="text-3xl font-semibold border-b-2 border-solid border-primary p-2 mx-16">Gallery</h3>
 
-        <div className="flex flex-wrap justify-center m-10">
+        <div className="mt-10">
+          <h3 className="text-3xl font-semibold border-b-2 border-solid border-primary p-2 mx-16">Gallery</h3>
+        </div>
+
+        <div className="flex flex-wrap justify-center">
           {data?.images?.map((image, i) => {
             return (
               <figure key={i}>
-                <img src={image} alt="i" className="m-5 rounded-2xl w-96 h-64 object-cover object-top" />
+                <img src={image} alt="i" className="mt-4 lg:m-5 rounded-2xl w-96 h-64 object-cover object-top" />
               </figure>
             );
           })}

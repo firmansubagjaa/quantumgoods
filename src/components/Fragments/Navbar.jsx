@@ -7,7 +7,7 @@ import LayoutsLoading from "../Layouts/LayoutsLoading";
 import IsLogin from "./Navbar/isLogin";
 import IsNotLogin from "./Navbar/isNotLogin";
 
-export default function Navbar({ children }) {
+export default function Navbar() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.category.data);
   const status = useSelector((state) => state.category.status);
@@ -51,81 +51,62 @@ export default function Navbar({ children }) {
   let user = JSON.parse(localStorage.getItem("user"));
 
   return (
-    <div className="drawer drawer-end">
-      <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
-        {/* Page content here */}
-        <div className="navbar bg-base-100 p-5 fixed z-10 shadow-md">
-          <div className="navbar-start">
-            <Link to={"/"} className="btn btn-ghost normal-case text-3xl">
-              <span>
-                <span className="text-primary font-bold">Quantum</span>Goods
-              </span>
-            </Link>
-          </div>
-          <div className="navbar-center hidden lg:flex">
-            <ul className="dropdown dropdown-hover px-1">
-              <label tabIndex={0} className="btn btn-ghost m-1">
-                Kategori
-              </label>
-              <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                {data.map((item, i) => {
-                  return (
-                    <Link key={i} to={`/products/${item}`}>
-                      <li className="">
-                        <a>{item}</a>
-                      </li>
-                    </Link>
-                  );
-                })}
-              </ul>
+    <div className="">
+      <div className="navbar z-[2] bg-base-100 p-5 fixed shadow-md">
+        <div className="navbar-start">
+          <Link to={"/"} className="btn btn-ghost normal-case text-3xl">
+            <span>
+              <span className="text-primary font-bold">Quantum</span>Goods
+            </span>
+          </Link>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="dropdown dropdown-hover px-1">
+            <label tabIndex={0} className="btn btn-ghost m-1">
+              Kategori
+            </label>
+            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              {data.map((item, i) => {
+                return (
+                  <li key={i}>
+                    <Link to={`/products/${item}`}>{item}</Link>
+                  </li>
+                );
+              })}
             </ul>
-            <div className="z-20">
-              <input value={query} onChange={handleInputData} type="text" placeholder="Cari di QuantumGoods" className="input input-bordered input-primary w-screen max-w-2xl" />
-              <ul className="bg-base-100 shadow-2xl fixed w-screen max-w-2xl rounded-b-2xl flex flex-col justify-center">
-                {searchResult.map((result) => {
-                  return (
-                    <Link key={result.id} to={`/product/${result.id}`} className="mx-3  hover:bg-base-300 hover:rounded-xl hover:mx-3 z-10">
-                      <li className="p-3">
-                        <figure className="flex items-center">
-                          <img src={result.thumbnail} alt={result.title} className="w-10 h-10 object-cover object-top rounded-xl" />
-                          <figcaption className="m-3">
-                            <span className="font-medium">{result.title}</span>
-                            <br />
-                            <span>{result.category}</span>
-                          </figcaption>
-                        </figure>
-                      </li>
-                    </Link>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-          <div className="navbar-end">
-            <div className="hidden lg:flex w-full">{user ? <IsLogin /> : <IsNotLogin />}</div>
-            <div className="flex lg:hidden">
-              <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-              </label>
-            </div>
+          </ul>
+          <div className="">
+            <input value={query} onChange={handleInputData} type="text" placeholder="Cari di QuantumGoods" className="input input-bordered input-primary w-screen max-w-2xl" />
+            <ul className="menu menu-horizontal overflow-auto bg-base-100 shadow-2xl fixed w-screen max-w-2xl rounded-b-2xl flex flex-col justify-center">
+              {searchResult.map((result) => {
+                return (
+                  <Link key={result.id} to={`/product/${result.id}`}>
+                    <li className="p-3">
+                      <figure className="flex items-center">
+                        <img src={result.thumbnail} alt={result.title} className="w-10 h-10 object-cover object-top rounded-xl" />
+                        <figcaption className="m-3">
+                          <span className="font-medium">{result.title}</span>
+                          <br />
+                          <span>{result.category}</span>
+                        </figcaption>
+                      </figure>
+                    </li>
+                  </Link>
+                );
+              })}
+            </ul>
           </div>
         </div>
-      </div>
-      {children}
-      <div className="drawer-side z-30">
-        <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-          {/* Sidebar content here */}
-          <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
-        </ul>
+        <div className="navbar-end">
+          <div className="hidden lg:flex w-full">{user ? <IsLogin /> : <IsNotLogin />}</div>
+          <div className="flex lg:hidden">
+            <label htmlFor="my-drawer-4" className="drawer-button btn btn-circle btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   );

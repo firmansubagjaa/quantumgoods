@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Cards from "./Cards";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 export default function Laptops() {
   const [data, setData] = useState([]);
@@ -20,16 +19,14 @@ export default function Laptops() {
   return (
     <>
       <div className="flex justify-between px-5 items-center mt-24">
-        <h1 className="p-3 font-medium text-3xl">Laptops </h1>
+        <h1 className="p-3 font-medium text-3xl">Brand Andalan`s </h1>
       </div>
-      <div className="carousel rounded-box">
+      <div className="flex flex-wrap justify-center">
         {data.map((item) => {
           return (
-            <Link to={`/product/${item.id}`} key={item.id}>
-              <div className="carousel-item">
-                <Cards title={item.title} desc={`$${item.price}`} image={item.thumbnail} className={"m-2"} category={item.category} />
-              </div>
-            </Link>
+            <div key={item.id} className="m-8">
+              <Cards title={item.title} desc={`$${item.price}`} image={item.thumbnail} className={"relative"} category={item.category} linkTo={`/product/${item.id}`} />
+            </div>
           );
         })}
       </div>

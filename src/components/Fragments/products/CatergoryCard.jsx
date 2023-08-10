@@ -29,11 +29,11 @@ export default function CatergoryCard() {
         <li className="p-5 font-bold  text-xl">Kategori</li>
         {data.map((item, i) => {
           return (
-            <Link key={i} to={`/products/${item}`}>
-              <li>
-                <a className="p-5">{item}</a>
-              </li>
-            </Link>
+            <li key={i}>
+              <Link to={`/products/${item}`} className="p-5 text-lg">
+                {item}
+              </Link>
+            </li>
           );
         })}
       </ul>
